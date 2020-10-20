@@ -5,7 +5,7 @@ import List.ListADT;
 
 import java.util.Iterator;
 
-public class ArrayList<E> extends AbstractList<E> implements ListADT<E> {
+public class ArrayList<E> extends AbstractList<E> implements ListADT<E>, Cloneable  {
 
     private E[] data;
     //private int size=0;
@@ -17,6 +17,11 @@ public class ArrayList<E> extends AbstractList<E> implements ListADT<E> {
 
     public ArrayList(){
         this(CAPACITY);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
 
@@ -84,6 +89,12 @@ public class ArrayList<E> extends AbstractList<E> implements ListADT<E> {
     }
 
     @Override
+    public void clear() {
+        data=(E [])new Object[CAPACITY];
+        size=0;
+    }
+
+    @Override
     public E remove(){
         return remove(size()-1);
     }
@@ -106,8 +117,31 @@ public class ArrayList<E> extends AbstractList<E> implements ListADT<E> {
     }
 
     @Override
+    public int indexOf(E e) throws IndexOutOfBoundsException {
+        if (contains(e)){
+            for(int i=0;i<size();i++)
+                if(data[i]==e)
+                    return i;
+        }
+        return -1;
+    }
+
+    @Override
+    public int lastIndexOf(E e) throws IndexOutOfBoundsException {
+        int lastIndex=-1;
+        if (contains(e)){
+            for(int i=0;i<size();i++)
+                if(data[i]==e)
+                    lastIndex =i;
+        }
+        return lastIndex;
+    }
+
+
+
+    @Override
     public String toString() {
-        //return Arrays.toString(data);
+        if(size()==0) return "[]";
         StringBuilder sb =new StringBuilder();
         sb.append('[');
         for(int i=0;i<size;i++)
