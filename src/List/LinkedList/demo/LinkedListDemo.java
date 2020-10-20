@@ -10,7 +10,7 @@ public class LinkedListDemo {
         list.add(3);
         list.add(4);
         list.add(5);
-        list.printAll();
+        /*list.printAll();
         list.removeLast();
         list.printAll();
         list.add(6);
@@ -19,6 +19,19 @@ public class LinkedListDemo {
         list.addFirst(0);
         list.printAll();
         list.addLast(9);
+        list.printAll();*/
         list.printAll();
+        System.out.println(list.size());
+        list.add(4,100);
+        list.printAll();
+        System.out.println(list.size());
+        list.add(5,200);
+        list.addLast(300);
+        list.printAll();
+        System.out.println(list.size());
+        System.out.println(list.first());
+        System.out.println(list.last());
+        
+
     }
 }

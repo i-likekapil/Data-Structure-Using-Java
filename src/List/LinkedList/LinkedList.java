@@ -38,8 +38,8 @@ public class LinkedList<E> implements LinkedListADT<E> {
     }
 
     private int size=0;
-    public Node<E> head=null;
-    public Node<E> tail=null;
+    private Node<E> head=null;
+    private Node<E> tail=null;
 
     @Override
     public boolean isEmpty() {
@@ -70,6 +70,7 @@ public class LinkedList<E> implements LinkedListADT<E> {
 
     }
 
+    @Override
     public  void add(E e){
         addLast(e);
     }
@@ -125,6 +126,43 @@ public class LinkedList<E> implements LinkedListADT<E> {
         sb.deleteCharAt(sb.length()-1);
         sb.append(']');
         System.out.println(sb.toString());
+    }
+
+    @Override
+    public E get(int index) throws IllegalArgumentException {
+        if(isEmpty()) throw new IllegalArgumentException("LinkedList is Empty");
+        if(index>=size || index <0) throw new IllegalArgumentException("Invalid index");
+        Node<E> temp =head;
+        int count=0;
+        //E ans;
+        while(count< index){
+            count++;
+            temp=temp.next;
+        }
+        return temp.getData();
+    }
+
+    @Override
+    public void add(int index, E e) throws IllegalArgumentException{
+        if(isEmpty()) throw new IllegalArgumentException("LinkedList is Empty");
+        if(index>=size || index <0) throw new IllegalArgumentException("Invalid index");
+        Node<E> temp =head;
+        Node<E> newNode = new Node<>(e,null);
+        int count=0;
+        while(count < index-1){
+            count++;
+            temp=temp.next;
+        }
+        //System.out.println("***************************************"+"count - > "+count+"  index -> "+index);
+        newNode.setNext(temp.getNext());
+        temp.setNext(newNode);
+        size++;
+
+    }
+
+    @Override
+    public E remove() throws IllegalArgumentException {
+        return removeLast();
     }
 
     @Override
