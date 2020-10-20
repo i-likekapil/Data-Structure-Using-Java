@@ -10,7 +10,6 @@ public class Demo {
         array.add(1);
         array.add(1);
         array.add(1);
-        array.clone();
         System.out.println(array.lastIndexOf(1));
     }
 }

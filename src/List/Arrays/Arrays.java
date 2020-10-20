@@ -61,7 +61,7 @@ public class Arrays {
             rotateArrayByOnePosition(a);
     }
 
-    public void sort(int[] array) {
+    public static void sort(int[] array) {
         insertionSort(array);
     }
 
@@ -85,7 +85,7 @@ public class Arrays {
         return min;
     }
 
-    public static void insertLastElementAtCorrectPosition(int[] array, int index, int lastIndex) {
+    private static void insertLastElementAtCorrectPosition(int[] array, int index, int lastIndex) {
         int temp=array[lastIndex];
         for(int i=lastIndex-1;i>=index;i--){
             if(array[i]>=temp)
@@ -128,5 +128,3 @@ public class Arrays {
         temp[j++]=arr[n-1];
         return temp;
     }*/
-
-
