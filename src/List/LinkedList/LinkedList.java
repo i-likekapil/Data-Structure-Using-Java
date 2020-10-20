@@ -14,9 +14,9 @@ public class LinkedList<E> implements LinkedListADT<E> {
             return data;
         }
 
-        public void setData(E data){
+        /*public void setData(E data){
             this.data=data;
-        }
+        }*/
 
         public Node<E> getNext() {
             return next;
