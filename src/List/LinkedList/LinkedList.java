@@ -1,10 +1,11 @@
 package List.LinkedList;
 
+import List.AbstractList;
 import List.LinkedListADT;
 
 import java.util.Iterator;
 
-public class LinkedList<E> implements LinkedListADT<E> {
+public class LinkedList<E> extends AbstractList<E> implements LinkedListADT<E> {
 
     private static class Node<E>{
         E data;
@@ -37,11 +38,11 @@ public class LinkedList<E> implements LinkedListADT<E> {
 
     }
 
-    private int size=0;
+    //private int size=0;
     private Node<E> head=null;
     private Node<E> tail=null;
 
-    @Override
+   /* @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -49,7 +50,7 @@ public class LinkedList<E> implements LinkedListADT<E> {
     @Override
     public int size() {
         return size;
-    }
+    }*/
 
     @Override
     public E last() {

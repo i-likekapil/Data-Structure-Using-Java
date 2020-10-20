@@ -1,8 +1,6 @@
 package List;
 
 public interface LinkedListADT<E> extends Iterable {
-    boolean isEmpty();
-    int size();
     E last();
     E first();
     void addFirst(E e);
