@@ -80,7 +80,6 @@ public class TreeNode {
         if(root == null) return;
         System.out.print(root.val+" ");
         Print(root.left);
-
         Print(root.right);
     }
 
