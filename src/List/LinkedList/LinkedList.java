@@ -143,6 +143,25 @@ public class LinkedList<E> implements LinkedListADT<E> {
     }
 
     @Override
+    public E remove(int index) throws IllegalArgumentException {
+        if (isEmpty()) throw new IllegalArgumentException("LinkedList is Empty");
+        if (index >= size || index < 0) throw new IllegalArgumentException("Invalid index");
+        if(index == size()-1) return removeLast();
+        if(index ==0 ) return removeFirst();
+        Node<E> temp = head;
+        Node<E> node;
+        int count = 0;
+        while (count < index - 1) {
+            count++;
+            temp = temp.getNext();
+        }
+        node=temp.getNext();
+        temp.setNext(node.getNext());
+        size--;
+    return node.getData();
+    }
+
+    @Override
     public void add(int index, E e) throws IllegalArgumentException{
         if(isEmpty()) throw new IllegalArgumentException("LinkedList is Empty");
         if(index>=size || index <0) throw new IllegalArgumentException("Invalid index");
@@ -157,7 +176,6 @@ public class LinkedList<E> implements LinkedListADT<E> {
         newNode.setNext(temp.getNext());
         temp.setNext(newNode);
         size++;
-
     }
 
     @Override
