@@ -9,7 +9,7 @@ public class Demo {
         array.add(1);
         array.add(1);
         array.add(1);
-        array.add(1);
+        array.add(2);
         System.out.println(array.lastIndexOf(1));
     }
 }
